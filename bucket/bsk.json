@@ -14,6 +14,7 @@
             "hash": "6feeb22e608e63e3049b2611cf48fce73daac2420945c35174c16e784cdb2677"
         }
     },
+    "pre_uninstall": "if (Test-Path \"$dir\\bsk.exe\") { & \"$dir\\bsk.exe\" daemon stop }",
     "bin": "bsk.exe",
     "checkver": {
         "url": "https://api.github.com/repos/Tencent/BrowserSkill/releases",
