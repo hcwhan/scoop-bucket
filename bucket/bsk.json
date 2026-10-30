@@ -1,0 +1,33 @@
+{
+    "version": "0.4.0",
+    "description": "CLI and daemon of BrowserSkill, which lets AI agents use your real, logged-in Chrome or Edge browser",
+    "homepage": "https://github.com/Tencent/BrowserSkill",
+    "license": "MIT",
+    "notes": [
+        "bsk is only the CLI and daemon. Install the BrowserSkill extension (Chrome / Edge) and the agent skill separately, e.g. 'bsk install-skill'.",
+        "bsk updates itself by default, which would rewrite files inside the versioned Scoop app directory. To let Scoop manage the version, set the user environment variable BSK_AUTO_UPDATE=off, and upgrade with 'scoop update bsk'.",
+        "If 'bsk' resolves to another copy (for example ~\\.local\\bin\\bsk.exe from the official installer), check 'Get-Command bsk -All'."
+    ],
+    "architecture": {
+        "64bit": {
+            "url": "https://github.com/Tencent/BrowserSkill/releases/download/cli-v0.4.0/bsk-v0.4.0-x86_64-pc-windows-msvc.zip",
+            "hash": "6feeb22e608e63e3049b2611cf48fce73daac2420945c35174c16e784cdb2677"
+        }
+    },
+    "bin": "bsk.exe",
+    "checkver": {
+        "url": "https://api.github.com/repos/Tencent/BrowserSkill/releases",
+        "regex": "\"tag_name\":\\s*\"cli-v([\\d.]+)\""
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://github.com/Tencent/BrowserSkill/releases/download/cli-v$version/bsk-v$version-x86_64-pc-windows-msvc.zip"
+            }
+        },
+        "hash": {
+            "url": "https://github.com/Tencent/BrowserSkill/releases/download/cli-v$version/version.json",
+            "jsonpath": "$.assets['windows-x64'].sha256"
+        }
+    }
+}
