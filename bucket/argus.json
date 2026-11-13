@@ -1,0 +1,36 @@
+{
+    "version": "0.5.0",
+    "description": "Fast, modern Windows task manager built with Rust and GPUI Kit",
+    "homepage": "https://argustask.com",
+    "license": "AGPL-3.0-or-later",
+    "notes": [
+        "Portable build without in-app updates. Upgrade with 'scoop update argus'.",
+        "For the privileged service, Task Manager replacement or kernel sensors, use the official installer instead: the Scoop directory is user-writable, so argus.exe could be replaced before it is elevated."
+    ],
+    "architecture": {
+        "64bit": {
+            "url": "https://github.com/Ray-lea/Argus/releases/download/v0.5.0/Argus_0.5.0_x64.exe#/argus.exe",
+            "hash": "a23fd2a4d0afa18e4f2a6fc52bea559e4a326466ad95f2775873a13284359bde"
+        }
+    },
+    "bin": "argus.exe",
+    "shortcuts": [
+        [
+            "argus.exe",
+            "Argus"
+        ]
+    ],
+    "checkver": {
+        "github": "https://github.com/Ray-lea/Argus"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://github.com/Ray-lea/Argus/releases/download/v$version/Argus_$version_x64.exe#/argus.exe"
+            }
+        },
+        "hash": {
+            "url": "$baseurl/SHA256SUMS.txt"
+        }
+    }
+}
